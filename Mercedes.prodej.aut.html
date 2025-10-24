@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="cs">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mercedes - Prodej aut</title>
+
+    <!-- Bootstrap CSS (vložit před vlastním stylem) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root{--accent:#0a3f7b;--bg:#f7f9fb;--card:#ffffff}
+        *{box-sizing:border-box}
+        body{font-family:Arial,Helvetica,sans-serif;margin:0;background:var(--bg);color:#111}
+        header{background:linear-gradient(90deg,var(--accent),#06345a);color:#fff;padding:18px 16px}
+        .wrap{max-width:1000px;margin:0 auto;padding:18px}
+        nav{display:flex;gap:12px;flex-wrap:wrap}
+        nav a{color:#fff;text-decoration:none;font-weight:600}
+        h1{margin:6px 0 0;font-size:20px}
+        section{margin:18px 0;padding:16px;background:var(--card);border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+        .grid{display:grid;gap:12px}
+        /* gallery */
+        .gallery{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+        .gallery img{width:100%;height:110px;object-fit:cover;border-radius:6px;cursor:pointer;border:1px solid #e6eef6}
+        /* video */
+        .video{display:grid;grid-template-columns:1fr;gap:12px}
+        video, iframe{width:100%;border-radius:6px;border:1px solid #e6eef6}
+        /* contacts */
+        form{display:grid;gap:8px}
+        input,textarea{padding:8px;border:1px solid #ccdcee;border-radius:6px;font-size:14px}
+        button{background:var(--accent);color:#fff;padding:10px;border:0;border-radius:6px;cursor:pointer}
+        /* reviews */
+        .review{padding:12px;border-radius:6px;background:#fbfdff;border:1px solid #eef6ff}
+        .stars{color:#ffae00}
+        /* footer */
+        footer{font-size:13px;color:#445566;text-align:center;padding:12px}
+        @media(min-width:700px){
+            .video{grid-template-columns:2fr 1fr}
+        }
+
+        /* LIGHTBOX */
+        .lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.75);z-index:1000;padding:20px}
+        .lightbox.open{display:flex}
+        .lightbox img{max-width:100%;max-height:90vh;border-radius:6px;box-shadow:0 6px 30px rgba(0,0,0,.6)}
+        .lightbox .close{position:absolute;top:18px;right:18px;background:rgba(255,255,255,0.95);border-radius:6px;padding:6px 10px;cursor:pointer;font-weight:700;border:0}
+
+        /* Cookie bar small adjustments */
+        #cookieBar a{color:var(--accent);text-decoration:underline}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="wrap">
+            <nav>
+                <div>
+                    <h1>Mercedes — Prodej aut</h1>
+                    <div style="opacity:.95;">Rychle, jasně a přehledně</div>
+                </div>
+                <div style="margin-left:auto;display:flex;gap:10px;align-items:center">
+                    <a href="#uvod">Úvod</a>
+                    <a href="#galerie">Galerie</a>
+                    <a href="#video">Video</a>
+                    <a href="#kontakt">Kontakt</a>
+                    <a href="#recenze">Recenze</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="wrap container py-4">
+        <section id="uvod">
+            <h2>Úvod</h2>
+            <p style="margin:8px 0 0">Nabízíme prověřené vozy Mercedes. Jasné informace, fotky, video a jednoduchý kontakt. Vyberte si z aktuální nabídky nebo nás kontaktujte pro více detailů.</p>
+        </section>
+
+        <section id="galerie">
+            <h2>Galerie</h2>
+            <div class="grid gallery" aria-label="Galerie vozů">
+                <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHUp6cZGqE33wP6zW9Aq4XLd7kMSaUnWuClA&s"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHUp6cZGqE33wP6zW9Aq4XLd7kMSaUnWuClA&s" alt="Mercedes 1"></a>
+                <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHUp6cZGqE33wP6zW9Aq4XLd7kMSaUnWuClA&s"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHUp6cZGqE33wP6zW9Aq4XLd7kMSaUnWuClA&s" alt="Mercedes 2"></a>
+                <a href="https://d62-a.sdn.cz/d_62/c_img_QM_M/Q9xF/Mercedes-Benz-tridy-S.jpeg?fl=cro,0,0,1920,1080%7Cres,1200,,1%7Cjpg,80,,1"><img src="https://d62-a.sdn.cz/d_62/c_img_QM_M/Q9xF/Mercedes-Benz-tridy-S.jpeg?fl=cro,0,0,1920,1080%7Cres,1200,,1%7Cjpg,80,,1" alt="Mercedes 3"></a>
+                <a href="https://1884403144.rsc.cdn77.org/foto/mercedes/MTIwMHgxMjAwL2ZpbHRlcnM6bm9fdXBzY2FsZSgxKS9pbWc/9197080.jpg?v=0&st=rIjsMQy3c0zqxacUOfnGCZR9h1aZdivbO-8A3RooTBc&ts=1600812000&e=0"><img src="https://1884403144.rsc.cdn77.org/foto/mercedes/MTIwMHgxMjAwL2ZpbHRlcnM6bm9fdXBzY2FsZSgxKS9pbWc/9197080.jpg?v=0&st=rIjsMQy3c0zqxacUOfnGCZR9h1aZdivbO-8A3RooTBc&ts=1600812000&e=0" alt="Mercedes 4"></a>
+            </div>
+            <p style="margin-top:8px;font-size:13px;color:#556">Klikněte na fotografii pro větší zobrazení.</p>
+        </section>
+
+        <section id="video">
+            <h2>Video</h2>
+            <div class="video">
+                <div>
+                    <!-- YouTube embed: nahraďte YOUR_YOUTUBE_EMBED_URL skutečným embed od YouTube (např. https://www.youtube.com/embed/VIDEO_ID) -->
+                    <div class="ratio ratio-16x9">
+                        <iframe id="ytPlayer" src="https://youtu.be/XCW3XLAkD6E?si=s8jT81oA8YVfYeoF" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div>
+                    <h3>Krátký přehled</h3>
+                    <p style="margin:8px 0">Video ukazuje stav vozu, interiér a klíčové funkce. Pro více položek nás kontaktujte.</p>
+                    <ul style="margin:8px 0 0;padding-left:18px">
+                        <li>Rok výroby: 2019–2024</li>
+                        <li>Najeté km: dle inzerátu</li>
+                        <li>Servisní historie k dispozici</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontakt">
+            <h2>Kontakt</h2>
+            <div class="row g-3">
+                <div class="col-12 col-md-6">
+                    <p><strong>Adresa:</strong> Pracovní 123, Praha</p>
+                    <p><strong>Tel:</strong> <a href="tel:+705927042">+420 705 927 042</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:info@mercedes-prodej.cz">info@mercedes-prodej.cz</a></p>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <form id="contactForm" onsubmit="submitForm(event)">
+                        <input type="text" name="name" class="form-control mb-2" placeholder="Jméno" required>
+                        <input type="email" name="email" class="form-control mb-2" placeholder="Email" required>
+                        <input type="text" name="subject" class="form-control mb-2" placeholder="Předmět" required>
+                        <textarea name="message" rows="4" class="form-control mb-2" placeholder="Zpráva" required></textarea>
+                        <button type="submit" class="btn btn-primary">Odeslat zprávu</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="recenze">
+            <h2>Recenze</h2>
+            <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+                <div class="review">
+                    <div class="stars">★★★★★</div>
+                    <p style="margin:8px 0 0"><strong>Jan K.</strong> — Rychlý servis, vůz odpovídal popisu. Doporučuji.</p>
+                </div>
+                <div class="review">
+                    <div class="stars">★★★★☆</div>
+                    <p style="margin:8px 0 0"><strong>Petra S.</strong> — Příjemné jednání, dobrá komunikace.</p>
+                </div>
+                <div class="review">
+                    <div class="stars">★★★★★</div>
+                    <p style="margin:8px 0 0"><strong>Tomáš M.</strong> — Bezproblémová koupě, auto jako nové.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        © Nabídka vozů Mercedes — jednoduchý prezentační web
+    </footer>
+
+    <!-- Cookie bar (GDPR) -->
+    <div id="cookieBar" class="fixed-bottom p-3 bg-light border-top" style="display:none; z-index:1100;">
+        <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+            <div class="me-3 small" style="max-width:75%">
+                Tento web používá cookies k zajištění správné funkce, analýze návštěvnosti a personalizaci obsahu. Pokračováním souhlasíte s používáním cookies.
+                <a href="#privacy">Více informací</a>
+            </div>
+            <div class="mt-2 mt-md-0">
+                <button id="acceptCookies" class="btn btn-primary btn-sm me-2">Akceptuji</button>
+                <button id="rejectCookies" class="btn btn-outline-secondary btn-sm">Nastavení</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function submitForm(e){
+            e.preventDefault();
+            const f = e.target;
+            // zde přidejte volání API nebo sendEmail; aktuálně jen potvrzení
+            alert('Děkujeme, zpráva byla odeslána: ' + (f.name.value || 'anonym'));
+            f.reset();
+        }
+
+        /* LIGHTBOX JS */
+        (function(){
+            const gallery = document.querySelector('.gallery');
+            if(!gallery) return;
+            const links = gallery.querySelectorAll('a');
+
+            // vytvoříme overlay
+            const lb = document.createElement('div');
+            lb.className = 'lightbox';
+            lb.innerHTML = '<button class="close" aria-label="Zavřít">Zavřít</button><img alt="">';
+            document.body.appendChild(lb);
+
+            const lbImg = lb.querySelector('img');
+            const closeBtn = lb.querySelector('.close');
+
+            function open(href, alt){
+                lbImg.src = href;
+                lbImg.alt = alt || '';
+                lb.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+            function close(){
+                lb.classList.remove('open');
+                lbImg.src = '';
+                document.body.style.overflow = '';
+            }
+
+            links.forEach(a=>{
+                a.addEventListener('click', function(e){
+                    e.preventDefault(); // zamezí otevření v nové záložce
+                    const href = this.href;
+                    const img = this.querySelector('img');
+                    const alt = img ? img.alt : '';
+                    open(href, alt);
+                });
+            });
+
+            // zavření po kliknutí mimo obrázek nebo na tlačítko zavřít
+            lb.addEventListener('click', function(e){
+                if(e.target === lb || e.target === closeBtn) close();
+            });
+            // zavření klávesou Escape
+            document.addEventListener('keydown', function(e){
+                if(e.key === 'Escape') close();
+            });
+        })();
+
+        /* COOKIE BAR */
+        (function(){
+            const bar = document.getElementById('cookieBar');
+            const KEY = 'cookiesAccepted_v1';
+            function showBar(){
+                bar.style.display = 'block';
+                // small entrance
+                bar.style.transform = 'translateY(10px)';
+                bar.style.opacity = '0';
+                requestAnimationFrame(()=>{
+                    bar.style.transition = 'transform .25s ease, opacity .25s ease';
+                    bar.style.transform = 'translateY(0)';
+                    bar.style.opacity = '1';
+                });
+            }
+            function hideBar(){
+                bar.style.display = 'none';
+            }
+
+            // pokud už souhlas existuje, nic nezobrazujeme
+            if(!localStorage.getItem(KEY)){
+                // zobrazit po načtení
+                window.addEventListener('load', showBar);
+            }
+
+            document.getElementById('acceptCookies').addEventListener('click', function(){
+                localStorage.setItem(KEY, '1');
+                hideBar();
+            });
+
+            document.getElementById('rejectCookies').addEventListener('click', function(){
+                // otevřít nastavení — pro jednoduchost schováme a uložíme '0'
+                localStorage.setItem(KEY, '0');
+                hideBar();
+                alert('Nastavení cookies: zde by se otevřelo nastavení (neimplementováno).');
+            });
+        })();
+    </script>
+</body>
+</html>

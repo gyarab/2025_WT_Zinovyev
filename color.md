@@ -1,8 +1,5 @@
 # FL Studio
 
-![Logo FL
-Studio](https://upload.wikimedia.org/wikipedia/en/5/56/FL_Studio_logo.png)
-
 -   Oranžová barva v logu symbolizuje kreativitu a energii, což odráží
     tvůrčí proces hudební produkce.
 -   Zelené a žluté tóny podporují pocit svěžesti, růstu a inspirace při
